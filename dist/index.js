@@ -84,8 +84,9 @@ hello()
 function summ(a) {
     const x = Object.keys(a).map((k) => {
         const elem = a[k];
-        if (typeof elem === "undefined")
-            return 2021;
+        if (typeof elem === "undefined" || typeof elem.cvalue === "undefined") {
+            return 2021; // Додав "|| typeof elem.cvalue === "undefined" "
+        }
         if (typeof elem.cvalue === "string")
             return +elem.cvalue || 2021;
         if (typeof elem.cvalue === "object")
